@@ -1,0 +1,29 @@
+<script>
+
+    let arrayInicial = ["unacadena", 3, 9, 1, 10, 500, 1, 10, true];
+    let arrayNumeros = new Array;
+
+
+    for (let index = 0; index < arrayInicial.length; index++) {
+       if (typeof (arrayInicial[index])==="number")  {
+        arrayNumeros.push (arrayInicial[index]);
+       }
+    }
+
+    function arregloBurbuja(arr) {
+        for (let i=0;  i< arr.length - 1; i++) {
+            for (let j = 0; j < arr.length -1; j++){
+                if (arr[j] > arr[j+1]) {
+                    let aux = arr[j]
+                    arr[j]=arr[j+1]
+                    arr[j+1]=aux
+                }
+            }
+        }
+        return arr;
+    }
+    console.log(arregloBurbuja(arrayNumeros));
+    
+    </script>
+    
+    
