@@ -1,0 +1,234 @@
+<html>
+    
+    <div id="gatoxtiro"></div>
+</html>
+
+
+
+<script>
+ 
+    class juego {
+     
+     gato1=[ 
+      ["","",""],
+      ["","",""],
+      ["","",""]
+    ];
+     
+    ganador=false;
+    tiro=0;
+     
+    siHayGanador() {
+      let p1 = 0;
+      let p2 = 1;
+      let p3 = 2;
+     
+     
+      for (let fila = 0; fila < this.gato1.length; fila++) {
+          if (this.gato1[fila][p1] == "x" && this.gato1[fila][p2] == "x" && this.gato1[fila][p3] == "x") {
+              console.log("Ha gando por fila");
+              ganador = true;
+          }
+          if (this.gato1[fila][p1] == "o" && this.gato1[fila][p2] == "o" && this.gato1[fila][p3] == "o") {
+              console.log("Ha gando por fila");
+              ganador = true;
+          }
+      }
+      for (let col = 0; col < this.gato1.length; col++) {
+          if (this.gato1[p1][col] == "x" && this.gato1[p2][col] == "x" && this.gato1[p3][col] == "x") {
+              console.log("Ha gando por columna");
+              ganador = true;
+          }
+          if (this.gato1[p1][col] == "o" && this.gato1[p2][col] == "o" && this.gato1[p3][col] == "o") {
+              console.log("Ha gando por columna");
+              ganador = true;
+          }
+      
+      }
+     
+      if (this.gato1[p1][p1] == "x" && this.gato1[p2][p2] == "x" && this.gato1[p3][p3] == "x") {
+          console.log("Ha gando en diagonal");
+          ganador = true;
+      }
+      if (this.gato1[p1][p1] == "o" && this.gato1[p2][p2] == "o" && this.gato1[p3][p3] == "o") {
+          console.log("Ha gando en diagonal");
+          ganador = true;
+      }
+      if (this.gato1[p1][p3] == "x" && this.gato1[p2][p2] == "x" && this.gato1[p3][p1] == "x") {
+          console.log("Ha gando en diagonal");
+          ganador = true;
+      }
+     
+      if (this.gato1[p1][p3] == "o" && this.gato1[p2][p2] == "o" && this.gato1[p3][p1] == "o") {
+          console.log("Ha gando en diagonal");
+          ganador = true;
+      }
+     
+     
+      if (this.tiro == 8 && this.ganador==false) {
+          console.log("No hay un ganador");
+      }
+    }
+     
+    tirar(figura,col,fila){
+         if( this.gato1[col][fila]==""){
+              this.gato1[col][fila]=figura;
+              console.log(this.gato1);
+              this.tiro=this.tiro+1;
+          }else{
+              console.log("No puedes tirar en donde ya tiraron");
+          }
+              //TODO validar si estamos en el 5 tiro o superior.
+              this.siHayGanador();
+    }
+    }
+     
+    class jugador {
+    nombre;
+    marcador=0;
+    juego;
+    figura;
+     
+    constructor(nombre,figura){
+    this.nombre=nombre;
+    this.figura=figura;
+    }
+    asignaJuego(juego){
+      this.juego=juego;
+    }
+     
+    tirar(){
+        let x=0;
+        let  y=0
+        x= window.prompt("Coloca la x??" );
+        y= window.prompt("Coloca la y??" );
+      this.juego.tirar( this.figura,x,y);
+    }
+    }
+     
+    let jugador1= new jugador("Juanito","x")
+    let jugador2= new jugador("Marce","0")
+    let gato= new juego();
+     
+    jugador1.asignaJuego(gato);
+    jugador2.asignaJuego(gato);
+     
+    jugador1.tirar();
+    jugador2.tirar();
+    </script>
+
+<html>
+    
+    <div id="gatoxtiro"></div>
+</html>
+<script>
+
+class juego {
+
+ gato1=[ 
+  ["","",""],
+  ["","",""],
+  ["","",""]
+];
+
+ganador=false;
+tiro=0;
+
+siHayGanador() {
+  let p1 = 0;
+  let p2 = 1;
+  let p3 = 2;
+
+
+  for (let fila = 0; fila < this.gato1.length; fila++) {
+      if (this.gato1[fila][p1] == "x" && this.gato1[fila][p2] == "x" && this.gato1[fila][p3] == "x") {
+          console.log("Ha gando por fila");
+          ganador = true;
+      }
+      if (this.gato1[fila][p1] == "o" && this.gato1[fila][p2] == "o" && this.gato1[fila][p3] == "o") {
+          console.log("Ha gando por fila");
+          ganador = true;
+      }
+  }
+  for (let col = 0; col < this.gato1.length; col++) {
+      if (this.gato1[p1][col] == "x" && this.gato1[p2][col] == "x" && this.gato1[p3][col] == "x") {
+          console.log("Ha gando por columna");
+          ganador = true;
+      }
+      if (this.gato1[p1][col] == "o" && this.gato1[p2][col] == "o" && this.gato1[p3][col] == "o") {
+          console.log("Ha gando por columna");
+          ganador = true;
+      }
+  
+  }
+
+  if (this.gato1[p1][p1] == "x" && this.gato1[p2][p2] == "x" && this.gato1[p3][p3] == "x") {
+      console.log("Ha gando en diagonal");
+      ganador = true;
+  }
+  if (this.gato1[p1][p1] == "o" && this.gato1[p2][p2] == "o" && this.gato1[p3][p3] == "o") {
+      console.log("Ha gando en diagonal");
+      ganador = true;
+  }
+  if (this.gato1[p1][p3] == "x" && this.gato1[p2][p2] == "x" && this.gato1[p3][p1] == "x") {
+      console.log("Ha gando en diagonal");
+      ganador = true;
+  }
+
+  if (this.gato1[p1][p3] == "o" && this.gato1[p2][p2] == "o" && this.gato1[p3][p1] == "o") {
+      console.log("Ha gando en diagonal");
+      ganador = true;
+  }
+
+
+  if (this.tiro == 8 && this.ganador==false) {
+      console.log("No hay un ganador");
+  }
+}
+
+tirar(figura,col,fila){
+     if( this.gato1[col][fila]==""){
+          this.gato1[col][fila]=figura;
+          console.log(this.gato1);
+          this.tiro=this.tiro+1;
+      }else{
+          console.log("No puedes tirar en donde ya tiraron");
+      }
+          //TODO validar si estamos en el 5 tiro o superior.
+          this.siHayGanador();
+}
+}
+
+class jugador {
+nombre;
+marcador=0;
+juego;
+figura;
+
+constructor(nombre,figura){
+this.nombre=nombre;
+this.figura=figura;
+}
+asignaJuego(juego){
+  this.juego=juego;
+}
+
+tirar(){
+    let x=0;
+    let  y=0
+    x= window.prompt("Coloca la x??" );
+    y= window.prompt("Coloca la y??" );
+  this.juego.tirar( this.figura,x,y);
+}
+}
+
+let jugador1= new jugador("Juanito","x")
+let jugador2= new jugador("Marce","0")
+let gato= new juego();
+
+jugador1.asignaJuego(gato);
+jugador2.asignaJuego(gato);
+
+jugador1.tirar();
+jugador2.tirar();
+</script>
